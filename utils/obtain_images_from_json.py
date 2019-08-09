@@ -8,7 +8,7 @@
 @Author: Zhao Jie
 @Time: 8/6/2019 9:52 AM
 @Version: 1.0  
-@Description: Obtain valid images from annotation json file.
+@Description: Pick the valid images from dataset.
 
 """
 
@@ -17,6 +17,7 @@ import os
 import json
 import shutil
 import pathlib
+import argparse
 
 
 def obtain_valid_images(json_file, src, dst):
@@ -64,12 +65,24 @@ def obtain_valid_images(json_file, src, dst):
     # Copy images from src folder to dst folder
     for a in annotations:
         image_path = os.path.join(src, a['filename'])
-        shutil.copy2(image_path, os.path.join(dst, a['filename']))
-        images_list.append(image_path)
-
+        try:
+            shutil.copy2(image_path, os.path.join(dst, a['filename']))
+            images_list.append(image_path)
+        except BaseException as e:
+            print("[ERROR] " + e + a['filename'])
+    print("[INFO] Copy " + str(len(images_list)) + " images.")
     return images_list
 
 
 if __name__ == '__main__':
-    valid_images = obtain_valid_images("../datasets/plate/valid/04/04/04.json", "../datasets/plate/original/04/04/", "../datasets/plate/valid/04/04/")
-    print("END")
+    # Usage: python obtain_images_from_json.py -f /path/to/json_file.json -i /path/to/input_folder -o /path/to/output_folder
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-f", "--file", type=str, required=True,
+                    help="path to json file")
+    ap.add_argument("-i", "--input", type=str, required=True,
+                    help="input image folder")
+    ap.add_argument("-o", "--output", type=str, required=True,
+                    help="output image folder")
+    args = vars(ap.parse_args())
+    valid_images = obtain_valid_images(args["file"], args["input"], args["output"])
+    print("[INFO] Processing completed.")
