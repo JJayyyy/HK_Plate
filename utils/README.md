@@ -1,9 +1,9 @@
 ## Workflow & Steps
-
-* simplify_json 
-* rect_to_polygon
-* obtain_images_from_json
-* annotation_check
+* get the combined json file (e.g. 09-1.json 09-2.json 09-3.json → 09.json; Use notepad++ Json Viewer Plugin to combine)
+* simplify_json.py 
+* rect_to_polygon.py
+* obtain_images_from_json.py
+* annotation_check.py
 * open VIA, import images and json, check errors in last step
 
 ### simplify_json.py
