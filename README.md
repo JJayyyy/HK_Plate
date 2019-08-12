@@ -14,11 +14,12 @@ Project Structure as illustrated:
             05.json 415 pics
             06.json
             07.json 502 pics
-            08.json
+            08.json 722 pics
             09.json
             10.json 607 pics
         ./05
             09.json 221 pics
+            08.json 131 pics
         ./06
             01.json 390 pics
             02.json 562 pics
