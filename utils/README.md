@@ -38,5 +38,14 @@ Check the annotations automatically for several mistakes. e.g. 1. No plate 2. Mu
 $ python annotation_check.py -i C:\path\to\json_file.json
 ```
 
+### Open VIA, Import images and json, Check and correct errors in last step
+
+### 多张车牌的情况，在VIA中把标注的内容全部删除即可
+
+### 重复 Open VIA, Import images and json, Check and correct errors in last step直至所有错误都排除掉
+
+### 导出json文件，运行一次simplify_json.py，去掉多张车牌的空标注；
+
+### 得到最终json文件，上传git，将之前的文件替换
 
 
