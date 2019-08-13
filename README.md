@@ -10,7 +10,7 @@ Project Structure as illustrated:
             01.json 367 pics √
             02.json 577 pics √
             03.json 680 pics
-            04.json 829 pics
+            04.json 828 pics √
             05.json 406 pics √
             06.json
             07.json 484 pics √
